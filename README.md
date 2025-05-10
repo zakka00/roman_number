@@ -20,16 +20,13 @@ Audit done.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.209 s
-[INFO] Finished at: 2025-05-10T16:26:16Z
+[INFO] Total time:  4.171 s
+[INFO] Finished at: 2025-05-10T18:12:20Z
 [INFO] ------------------------------------------------------------------------
 ```
-Formato CSV della build coverage di JaCoCo:
-```
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-roman-number,it.unipd.mtss,IntegerToRoman,0,187,1,3,0,8,1,3,0,2
-roman-number,it.unipd.mtss,RomanPrinter,3,269,1,7,1,15,2,5,1,2
-```
+Copertura del codice (Coveralls):
+
+[![Coverage Status](https://coveralls.io/repos/github/zakka00/roman_number/badge.svg?branch=main)](https://coveralls.io/github/zakka00/roman_number?branch=main)
 Violazioni Checkstyle:
 Errori rilevati: 0
 
