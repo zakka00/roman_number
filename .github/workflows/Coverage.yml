@@ -1,0 +1,54 @@
+name: Java CI with Maven
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build and test with JaCoCo
+      run: |
+        mkdir -p temp
+        mvn clean verify jacoco:report checkstyle:checkstyle | tee temp/build.log
+
+    - name: Create build summary and script for the re-writing of the README.md file
+      run: |
+        echo "### Build & Coverage Report" > temp/summary.md
+        echo "Log finale Maven (ultime 20 righe):" >> temp/summary.md
+        echo '```' >> temp/summary.md
+        tail -n 20 temp/build.log >> temp/summary.md
+        echo '```' >> temp/summary.md
+        echo "Formato CSV della build coverage di JaCoCo:" >> temp/summary.md
+        echo '```' >> temp/summary.md
+        head -n 1 target/site/jacoco/jacoco.csv >> temp/summary.md
+        tail -n +2 target/site/jacoco/jacoco.csv >> temp/summary.md
+        echo '```' >> temp/summary.md
+        echo "Violazioni Checkstyle:" >> temp/summary.md
+        CHECKSTYLE_ERRORS=$(grep -o 'severity="error"' target/checkstyle-result.xml | wc -l)
+        echo "Errori rilevati: $CHECKSTYLE_ERRORS" >> temp/summary.md
+        REPORT=$(cat temp/summary.md)
+        echo -n "" > README.md
+        echo -e "\n$START\n$REPORT\n$END" >> README.md
+        
+    - name: Commit updated README.md
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git fetch
+        git checkout ${{ github.head_ref || github.ref_name }}
+        git add README.md
+        git commit -m "Aggiorna README.md con risultati build"
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.head_ref || github.ref_name }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
