@@ -6,11 +6,11 @@ package it.unipd.mtss;
 
 public class IntegerToRoman {
     public static String convert(int number) {
-        if (number < 1 || number > 6) {
-            throw new IllegalArgumentException("Number out of bounds");
+        if (number < 1 || number > 10) {
+            throw new IllegalArgumentException("Number must be between 1 and 10");
         }
 
-        String[] roman = {"I", "II", "III", "IV", "V", "VI"};
-        return roman[number - 1];
+        String[] romanNumerals = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        return romanNumerals[number - 1];
     }
 }

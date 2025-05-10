@@ -21,9 +21,18 @@ public class IntegerToRomanTest {
         assertEquals("VI", i.convert(6));
     }
 
+    @Test
+    public void testPrimiDieciNumeri() {
+        IntegerToRoman i = new IntegerToRoman();
+        assertEquals("VII", i.convert(7));
+        assertEquals("VIII", i.convert(8));
+        assertEquals("IX", i.convert(9));
+        assertEquals("X", i.convert(10));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testOutOfBounds() {
         IntegerToRoman.convert(-10);
-        IntegerToRoman.convert(10);
+        IntegerToRoman.convert(11);
     }
 }
