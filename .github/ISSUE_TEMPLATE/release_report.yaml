@@ -1,0 +1,42 @@
+name: "Feature Request"
+description: "Suggerisci una nuova funzionalità per il progetto"
+title: "[Feature] <Titolo della funzionalità>"
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver suggerito una nuova funzionalità!
+
+  - type: input
+    id: feature-summary
+    attributes:
+      label: "Descrizione breve"
+      description: "Fornisci un riassunto chiaro e conciso della nuova funzionalità."
+      placeholder: "Aggiungere il supporto per la modalità dark"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: "Problema attuale"
+      description: "Quale problema risolverà questa funzionalità? Perché è utile?"
+      placeholder: "Descrivi il problema che questa funzionalità risolverà."
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: device-type
+    attributes:
+      label: Per quali dispositivi tipologie vuoi che si applici la feature?
+      description: Puoi selezionarne più di una.
+      options:
+        - label: Mobile 
+        - label: Computers
+        - label: Web
+
+
+      
