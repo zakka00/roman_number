@@ -70,12 +70,43 @@ public class IntegerToRomanTest {
         assertEquals("CDXXV", i.convert(425));
         assertEquals("CI", i.convert(101));
     }
+
+    @Test
+    public void testNumeriDaCinquecentoAMille_Estesi() {
+        IntegerToRoman i = new IntegerToRoman();
+        // Numeri tondi
+        assertEquals("D", i.convert(500));
+        assertEquals("DC", i.convert(600));
+        assertEquals("DCC", i.convert(700));
+        assertEquals("DCCC", i.convert(800));
+        assertEquals("CM", i.convert(900));
+        assertEquals("M", i.convert(1000));
+
+        // Estremi e casi con tutte le cifre
+        assertEquals("DI", i.convert(501));
+        assertEquals("DL", i.convert(550));
+        assertEquals("DCXLIV", i.convert(644));
+        assertEquals("DCCLXXXIX", i.convert(789));
+        assertEquals("DCCCXC", i.convert(890));
+        assertEquals("CMXC", i.convert(990));
+        assertEquals("CMXCIX", i.convert(999));
+
+        // Casi intermedi
+        assertEquals("DXXV", i.convert(525));
+        assertEquals("DCLXVI", i.convert(666));
+        assertEquals("DCCXX", i.convert(720));
+        assertEquals("DCCCXLV", i.convert(845));
+        assertEquals("CML", i.convert(950));
+        assertEquals("CMLXXXVIII", i.convert(988));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testOutOfBounds() {
+        IntegerToRoman.convert(10000);
         IntegerToRoman.convert(-1);
         IntegerToRoman.convert(0);
         IntegerToRoman.convert(-100);
-        IntegerToRoman.convert(501);
-        IntegerToRoman.convert(603);
+        IntegerToRoman.convert(10001);
+        IntegerToRoman.convert(-11);
     }
 }
