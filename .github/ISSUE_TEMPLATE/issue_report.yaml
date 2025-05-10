@@ -25,7 +25,7 @@ body:
       description: "Descrivi il problema nel dettaglio, includendo eventuali errori o comportamenti inattesi."
       placeholder: "Es. Quando provo a effettuare il login con credenziali corrette, il sistema mostra un errore 500."
     validations:
-      required: false
+      required: true
 
   - type: textarea
     id: steps-to-reproduce

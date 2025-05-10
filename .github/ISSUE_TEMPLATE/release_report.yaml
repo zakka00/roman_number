@@ -26,7 +26,7 @@ body:
       description: "Quale problema risolverà questa funzionalità? Perché è utile?"
       placeholder: "Descrivi il problema che questa funzionalità risolverà."
     validations:
-      required: false
+      required: true
       
   - type: checkboxes
     id: device-type
