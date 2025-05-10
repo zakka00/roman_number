@@ -20,13 +20,14 @@ Audit done.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.171 s
-[INFO] Finished at: 2025-05-10T18:12:20Z
+[INFO] Total time:  4.965 s
+[INFO] Finished at: 2025-05-10T18:14:01Z
 [INFO] ------------------------------------------------------------------------
 ```
 Copertura del codice (Coveralls):
 
 [![Coverage Status](https://coveralls.io/repos/github/zakka00/roman_number/badge.svg?branch=main)](https://coveralls.io/github/zakka00/roman_number?branch=main)
+
 Violazioni Checkstyle:
 Errori rilevati: 0
 
