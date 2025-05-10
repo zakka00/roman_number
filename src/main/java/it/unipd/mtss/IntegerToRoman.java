@@ -5,15 +5,12 @@
 package it.unipd.mtss;
 
 public class IntegerToRoman {
-    public static String convert(int number){
-        String result = "";
-        if (number < 1 || number > 3) {
+    public static String convert(int number) {
+        if (number < 1 || number > 6) {
             throw new IllegalArgumentException("Number out of bounds");
         }
-        while (number > 0) {
-            result += "I";
-            number--;
-        }
-        return result;
+
+        String[] roman = {"I", "II", "III", "IV", "V", "VI"};
+        return roman[number - 1];
     }
 }

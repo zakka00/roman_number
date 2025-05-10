@@ -13,9 +13,17 @@ public class IntegerToRomanTest {
         assertEquals("III", i.convert(3));
     }
     
+    @Test
+    public void testPrimiSeiNumeri() {
+        IntegerToRoman i = new IntegerToRoman();
+        assertEquals("IV", i.convert(4));
+        assertEquals("V", i.convert(5));
+        assertEquals("VI", i.convert(6));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testOutOfBounds() {
         IntegerToRoman.convert(-10);
-        IntegerToRoman.convert(5);
+        IntegerToRoman.convert(10);
     }
 }
