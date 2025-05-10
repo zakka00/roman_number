@@ -92,7 +92,7 @@ public class IntegerToRomanTest {
         assertEquals("CMXCIX", i.convert(999));
 
         // Casi intermedi
-        assertEquals("DXXV", i.convert(525));
+        assertEquals("CMLXIX", i.convert(969));
         assertEquals("DCLXVI", i.convert(666));
         assertEquals("DCCXX", i.convert(720));
         assertEquals("DCCCXLV", i.convert(845));
