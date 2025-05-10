@@ -39,9 +39,20 @@ public class IntegerToRomanTest {
         assertEquals("XVII", i.convert(17));
     }
 
+    @Test
+    public void testPrimiCinquantaNumeri() {
+        IntegerToRoman i = new IntegerToRoman();
+        assertEquals("XX", i.convert(20));
+        assertEquals("XXV", i.convert(25));
+        assertEquals("XXIX", i.convert(29));
+        assertEquals("XXX", i.convert(30));
+        assertEquals("XXXIX", i.convert(39));
+        assertEquals("XL", i.convert(40));
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testOutOfBounds() {
         IntegerToRoman.convert(-10);
-        IntegerToRoman.convert(25);
+        IntegerToRoman.convert(55);
     }
 }
