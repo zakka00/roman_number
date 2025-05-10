@@ -6,13 +6,16 @@ package it.unipd.mtss;
 
 public class IntegerToRoman {
     public static String convert(int number) {
-        if (number < 1 || number > 100) {
-            throw new IllegalArgumentException("Number must be between 1 and 100");
+        if (number < 1 || number > 500) {
+            throw new IllegalArgumentException("Number must be between 1 and 500");
         }
 
-        String[] decine = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC", "C"};
-        String[] unita =  {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        String[] centinaia = {"", "C", "CC", "CCC", "CD", "D"};
+        String[] decine =    {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] unita =     {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 
-        return decine[number / 10] + unita[number % 10];
+        return centinaia[(number % 1000) / 100] + 
+               decine[(number % 100) / 10] + 
+               unita[number % 10];
     }
 }

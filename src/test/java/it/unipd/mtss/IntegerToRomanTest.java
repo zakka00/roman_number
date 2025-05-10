@@ -57,11 +57,25 @@ public class IntegerToRomanTest {
         assertEquals("XCIX", i.convert(99));
         assertEquals("C", i.convert(100));
     }
+    @Test
+    public void testNumeriDaCentoCinquecento() {
+        IntegerToRoman i = new IntegerToRoman();
+        assertEquals("CXLIX", i.convert(149));
+        assertEquals("CDXCIX", i.convert(499));
+        assertEquals("CDL", i.convert(450));
+        assertEquals("CCC", i.convert(300));
+        assertEquals("CD", i.convert(400));
+        assertEquals("CCLXXXVIII", i.convert(288));
+        assertEquals("CCCXLVII", i.convert(347));
+        assertEquals("CDXXV", i.convert(425));
+        assertEquals("CI", i.convert(101));
+    }
     @Test(expected = IllegalArgumentException.class)
     public void testOutOfBounds() {
         IntegerToRoman.convert(-1);
         IntegerToRoman.convert(0);
-        IntegerToRoman.convert(101);
-        IntegerToRoman.convert(103);
+        IntegerToRoman.convert(-100);
+        IntegerToRoman.convert(501);
+        IntegerToRoman.convert(603);
     }
 }
