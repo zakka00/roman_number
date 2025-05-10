@@ -25,6 +25,8 @@ jobs:
         mkdir -p temp
         mvn clean verify jacoco:report checkstyle:checkstyle | tee temp/build.log
         mvn coveralls:report
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
     - name: Create build summary and script for the re-writing of the README.md file
       run: |
